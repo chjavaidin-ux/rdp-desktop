@@ -1,0 +1,19 @@
+{
+  "name": "rdp-desktop",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [6080, 5901],
+  "portsAttributes": {
+    "6080": {
+      "label": "noVNC desktop (540x960)",
+      "onAutoForward": "openPreview"
+    },
+    "5901": {
+      "label": "VNC",
+      "onAutoForward": "silent"
+    }
+  },
+  "postStartCommand": "bash .devcontainer/start-desktop.sh",
+  "remoteUser": "vscode"
+}
